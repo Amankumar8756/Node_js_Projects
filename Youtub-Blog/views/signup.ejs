@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <%- include('./partials/nav') %>
+    <title>Signup</title>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <!-- Display error messages if any -->
+      <% if (typeof error !== 'undefined' && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+      <% } %>
+
+      <form action="/user/signup" method="post">
+        <!-- Full Name Field -->
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            aria-describedby="fullNameHelp"
+            required
+          />
+          <div id="fullNameHelp" class="form-text">
+            Please fill your full name.
+          </div>
+        </div>
+        <!-- End of Full Name -->
+
+        <!-- Email Field -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email" <!-- Corrected from "eamil" to "email" -->
+            aria-describedby="emailHelp"
+            required
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <!-- End of Email -->
+
+        <!-- Password Field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <!-- End of Password -->
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
